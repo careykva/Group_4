@@ -17,7 +17,6 @@
     <version>0.1.0.1</version>
 
     <properties>
-        <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>

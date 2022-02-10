@@ -9,7 +9,7 @@ public class App
 {
     public static void main(String[] args)
     {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient("localhost", 27000);
         MongoDatabase database = mongoClient.getDatabase("mydb");
         MongoCollection<Document> collection = database.getCollection("test");
         Document doc = new Document("name", "Kevin Sim")

@@ -1,4 +1,4 @@
 FROM openjdk:latest
-COPY release 0.1.0.2
+COPY ./target/seMethods-0.1.0.2-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["release 0.1.0.2 (0.1-alpha-2)"]
+ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.2-jar-with-dependencies.jar"]

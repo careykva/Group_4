@@ -21,7 +21,3 @@ jobs:
         run: docker run --name semcontainer -d semimage
       - name: view logs
         run: docker logs semcontainer
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.

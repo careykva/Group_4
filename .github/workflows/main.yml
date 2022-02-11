@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: docker build -t se_methods .
       - name: Run image
-        run: docker run --network se-methods --name mongo:latest se_methods
+        run: docker run --network se-methods --name mongo-dbserver se_methods
       - name: view logs
         run: docker logs mongo:latest
           echo Add other actions to build,

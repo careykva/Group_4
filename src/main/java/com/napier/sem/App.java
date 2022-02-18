@@ -1,8 +1,6 @@
 package com.napier.sem;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class App
 {

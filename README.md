@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Welcome.
 =======
 # Group_4

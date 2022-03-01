@@ -19,4 +19,12 @@ end note
 note "This note is connected\nto several objects." as N2
 (Start) .. N2
 N2 .. (Use)
+OW - UC1
+UC1 ..> UC1.1 : optional
+    UC1.1 ..>UCa : include
+UC1 ..> UC1.2 : optional
+    UC1.2 --> UCa : include
+UC1 ..> UC1.3 : optional
+    UC1.3 --> UCa : include
+UC1 - worldDatabase
 @enduml

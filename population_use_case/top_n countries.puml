@@ -1,0 +1,27 @@
+@startuml
+actor AL as "Demographer"
+
+rectangle worldDatabase
+
+rectangle "World Population Data System" {
+	usecase UC4 as "Display all capital cities"
+	usecase UC4.1 as "world"
+	usecase UC4.2 as "continent"
+	usecase UC4.3 as "region"
+
+
+	usecase UCa as "Show cities by largest to smallest population"
+
+
+AL - UC4
+UC4 ..> UC4.1 : optional
+    UC4.1 --> UCa : include
+UC4 ..> UC4.2 : optional
+    UC4.2 --> UCa : include
+UC4 ..> UC4.3 : optional
+    UC4.3 --> UCa : include
+
+
+
+UC4 - worldDatabase
+@enduml

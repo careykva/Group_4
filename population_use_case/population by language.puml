@@ -1,22 +1,30 @@
 @startuml
-'https://plantuml.com/use-case-diagram
+actor AL as "Demographer"
 
-:Main Admin: as Admin
-(Use the application) as (Use)
+rectangle worldDatabase
 
-User -> (Start)
-User --> (Use)
+rectangle "World Population Data System" {
+	usecase UC7 as "Fetch Population"
+	usecase UC7.1 as "Chinese"
+	usecase UC7.2 as "English"
+	usecase UC7.3 as "Hindi"
+	usecase UC7.4 as "Spanish"
+	usecase UC7.5 as "Arabic"
 
-Admin ---> (Use)
+	usecase UCa as "Display Population by Language"
 
-note right of Admin : This is an example.
 
-note right of (Use)
-A note can also
-be on several lines
-end note
+AL - UC7
+UC7 ..> UC7.1 : optional
+    UC7.1 --> UCa : include
+UC7 ..> UC7.2 : optional
+    UC7.2 --> UCa : include
+UC7 ..> UC7.3 : optional
+    UC7.3 --> UCa : include
+UC7 ..> UC7.4 : optional
+    UC7.4 --> UCa : include
+UC7 ..> UC7.5 : optional
+    UC7.5 --> UCa : include
 
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
+UC7 - worldDatabase
 @enduml

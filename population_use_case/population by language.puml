@@ -4,27 +4,27 @@ actor AL as "Demographer"
 rectangle worldDatabase
 
 rectangle "World Population Data System" {
-	usecase UC6 as "Fetch all cities"
-	usecase UC6.1 as "world"
-	usecase UC6.2 as "continent"
-	usecase UC6.3 as "region"
-	usecase UC6.4 as "country"
-	usecase UC6.5 as "district"
+	usecase UC7 as "Fetch Population"
+	usecase UC7.1 as "Chinese"
+	usecase UC7.2 as "English"
+	usecase UC7.3 as "Hindi"
+	usecase UC7.4 as "Spanish"
+	usecase UC7.5 as "Arabic"
 
-	usecase UCa as "Show cities by largest to smallest population"
+	usecase UCa as "Display Population by Language"
 
 
-AL - UC6
-UC6 ..> UC6.1 : optional
-    UC6.1 --> UCa : include
-UC6 ..> UC6.2 : optional
-    UC6.2 --> UCa : include
-UC6 ..> UC6.3 : optional
-    UC6.3 --> UCa : include
-UC6 ..> UC6.4 : optional
-    UC6.4 --> UCa : include
-UC6 ..> UC6.5 : optional
-    UC6.5 --> UCa : include
+AL - UC7
+UC7 ..> UC7.1 : optional
+    UC7.1 --> UCa : include
+UC7 ..> UC7.2 : optional
+    UC7.2 --> UCa : include
+UC7 ..> UC7.3 : optional
+    UC7.3 --> UCa : include
+UC7 ..> UC7.4 : optional
+    UC7.4 --> UCa : include
+UC7 ..> UC7.5 : optional
+    UC7.5 --> UCa : include
 
-UC6 - worldDatabase
+UC7 - worldDatabase
 @enduml

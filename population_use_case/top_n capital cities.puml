@@ -1,22 +1,26 @@
 @startuml
-'https://plantuml.com/use-case-diagram
+actor AL as "Demographer"
 
-:Main Admin: as Admin
-(Use the application) as (Use)
+rectangle worldDatabase
 
-User -> (Start)
-User --> (Use)
+rectangle "World Population Data System" {
+	usecase UC8 as "Display all capital cities"
+	usecase UC8.1 as "world"
+	usecase UC8.2 as "continent"
+	usecase UC8.3 as "region"
 
-Admin ---> (Use)
 
-note right of Admin : This is an example.
+	usecase UCa as "Show cities by largest to smallest population"
 
-note right of (Use)
-A note can also
-be on several lines
-end note
 
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
+AL - UC8
+UC8 ..> UC8.1 : optional
+    UC8.1 --> UCa : include
+UC8 ..> UC8.2 : optional
+    UC8.2 --> UCa : include
+UC8 ..> UC8.3 : optional
+    UC8.3 --> UCa : include
+
+
+UC8 - worldDatabase
 @enduml

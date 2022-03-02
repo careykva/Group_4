@@ -4,7 +4,7 @@ actor AL as "Demographer"
 rectangle worldDatabase
 
 rectangle "World Population Data System" {
-	usecase UC6 as "Display all capital cities"
+	usecase UC6 as "Fetch all cities"
 	usecase UC6.1 as "world"
 	usecase UC6.2 as "continent"
 	usecase UC6.3 as "region"

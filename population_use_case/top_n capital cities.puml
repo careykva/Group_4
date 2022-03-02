@@ -1,23 +1,26 @@
 @startuml
 actor AL as "Demographer"
 
-rectangle Population
+rectangle worldDatabase
 
-rectangle "World population Data" {
-	usecase UC1 as "Get all capital cities"
-	usecase UC1.1 as "in the world"
-	usecase UC1.2 as "in a continent"
-	usecase UC1.3 as "in a region"
+rectangle "World Population Data System" {
+	usecase UC8 as "Display all capital cities"
+	usecase UC8.1 as "world"
+	usecase UC8.2 as "continent"
+	usecase UC8.3 as "region"
 
-	usecase UCa as "Print organised by largest population to smallest"
-(Start) .. N2
-N2 .. (Use)
-AL - UC1
-UC1 ..> UC1.1 : optional
-    UC1.1 ..>UCa : include
-UC1 ..> UC1.2 : optional
-    UC1.2 --> UCa : include
-UC1 ..> UC1.3 : optional
-    UC1.3 --> UCa : include
-UC1 - Population
+
+	usecase UCa as "Show cities by largest to smallest population"
+
+
+AL - UC8
+UC8 ..> UC8.1 : optional
+    UC8.1 --> UCa : include
+UC8 ..> UC8.2 : optional
+    UC8.2 --> UCa : include
+UC8 ..> UC8.3 : optional
+    UC8.3 --> UCa : include
+
+
+UC8 - worldDatabase
 @enduml

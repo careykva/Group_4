@@ -20,5 +20,5 @@ jobs:
       - name: Run docker-compose
         run: docker-compose up --abort-on-container-exit
       - name: Codecov
-       uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v2.1.0
 

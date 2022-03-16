@@ -1,3 +1,4 @@
+
 # Use the latest MySQL image
 FROM mysql/mysql-server:latest
 # Set the working directory

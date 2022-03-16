@@ -61,6 +61,9 @@ public class App
         }
     }
 
+    public <Employee> void addEmployee(Employee emp) {
+
+    }
 }
 
 

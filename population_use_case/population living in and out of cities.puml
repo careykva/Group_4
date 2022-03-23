@@ -1,0 +1,21 @@
+@startuml
+actor AL as "Demographer"
+
+rectangle worldDatabase
+
+rectangle "World Population Data System" {
+	usecase "UC7 - UC6" as  "Display population living in & out district"
+	usecase UC7.1 as "Cities"
+
+
+	usecase UCa as "Show cities by largest to smallest population"
+
+ AL - UC7
+UC7 ..> UC7.1 : optional
+    UC7.1 --> UCa : include
+UC6 ..> UC6.1 : optional
+    UC6.1 --> UCa : include
+
+UC7 - worldDatabase
+
+@enduml

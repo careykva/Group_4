@@ -3,7 +3,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 
 public class City {
-    private int id;
+    public Object first_name;
+    public Object last_name;
+    int id;
     private String name;
     private String CountryCode;
     private String district;

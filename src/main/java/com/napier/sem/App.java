@@ -2,18 +2,35 @@ package com.napier.sem;
 
 import java.sql.*;
 
-public class App
-{
-    public static void main(String[] args)
+public class App {
+    public static <City> void main(String[] args) {
 
-    {
-        try
-        {
+        App a = new App();
+
+        a.connect();
+        City cty = a.getCity(17);
+        // Display results
+        a.displayCity(cty );
+
+        a.disconnect();
+
+    }
+
+    private <City> City getCity(int i) {
+        return null;
+    }
+
+    private <City> void displayCity(City cty) {
+    }
+
+    private Connection con = null;
+
+
+    public void connect() {
+        try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-        }
-        catch (ClassNotFoundException e)
-        {
+        } catch (ClassNotFoundException e) {
             System.out.println("Could not load SQL driver");
             System.exit(-1);
         }
@@ -21,11 +38,9 @@ public class App
         // Connection to the database
         Connection con = null;
         int retries = 100;
-        for (int i = 0; i < retries; ++i)
-        {
+        for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
-            try
-            {
+            try {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
@@ -35,18 +50,17 @@ public class App
                 Thread.sleep(10000);
                 // Exit for loop
                 break;
-            }
-            catch (SQLException sql)
-            {
+            } catch (SQLException sql) {
                 System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sql.getMessage());
-            }
-            catch (InterruptedException ie)
-            {
+            } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
+    }
 
+    public void disconnect()
+    {
         if (con != null)
         {
             try
@@ -61,10 +75,11 @@ public class App
         }
     }
 
-    public <Employee> void addEmployee(Employee emp) {
 
-    }
 }
+
+
+
 
 
 

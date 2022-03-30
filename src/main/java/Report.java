@@ -13,7 +13,7 @@ public class Report {
         for (City cty : City) {
             String emp_string =
                     String.format("%-10s %-15s %-20s %-8s",
-                            cty.id, cty.first_name, cty.last_name, cty.id);
+                            cty.getId(), cty.getFirst_name(), cty.getLast_name(), cty.getId());
             char cty_string = 0;
             System.out.println(cty_string);
         }

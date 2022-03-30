@@ -4,11 +4,11 @@ import java.sql.ResultSet;
 
 public class City {
     private Object first_name;
-    private Object last_name;
-    private String name;
-    private String CountryCode;
-    private String district;
-    private int id;
+    public Object last_name;
+    public String name;
+    public String CountryCode;
+    public String district;
+    public int id;
 
     public City(String countryCode) {
         setCountryCode(countryCode);

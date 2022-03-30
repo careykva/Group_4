@@ -9,6 +9,7 @@ public class City {
     private String name;
     private String CountryCode;
     private String district;
+    private int id;
 
     public City(String countryCode) {
         CountryCode = countryCode;

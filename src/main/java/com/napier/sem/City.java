@@ -17,9 +17,9 @@ public class City {
 
     App a = new App();
 
-    public void Citydata(){
-        ArrayList<City> Cities = getCity(17);
-        displayCity(Cities);
+    public void cityData(){
+        ArrayList<City> cities = getCity(17);
+        displayCity(cities);
     }
 
 
@@ -30,9 +30,9 @@ public class City {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT id, name, CountryCode, district"
-                            + "FROM city"
-                            + "WHERE id = " + ID;
+                    "SELECT ID, Name, CountryCode, District "
+                            + "FROM city "
+                            + "WHERE ID = " + ID;
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*
@@ -58,11 +58,11 @@ public class City {
 
 
 
-    public void displayCity(ArrayList<City> Cities) {
+    public void displayCity(ArrayList<City> cities) {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s", "id", "name", "countryCode", "district"));
         // Loop over all employees in the list
-        for (City cty : Cities) {
+        for (City cty : cities) {
             String cty_string =
                     String.format("%-10s %-15s %-20s %-8s",
                             cty.id, cty.name, cty.countryCode, cty.district);

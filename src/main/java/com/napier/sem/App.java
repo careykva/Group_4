@@ -4,12 +4,10 @@ import java.sql.*;
 
 public class App {
     public static void main(String[] args) {
-
         App a = new App();
         City cty = new City();
 
-
-        cty.Citydata();
+        cty.cityData();
 
         a.disconnect();
 
@@ -60,6 +58,7 @@ public class App {
             {
                 // Close connection
                 con.close();
+                System.out.println("Successfully disconnected");
             }
             catch (Exception e)
             {

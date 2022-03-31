@@ -6,12 +6,10 @@ public class App {
     public static void main(String[] args) {
 
         App a = new App();
-
-        a.connect();
         City cty = new City();
-        cty.getCity(17);
-        // Display results
-        a.displayCity(cty );
+
+
+        cty.Citydata();
 
         a.disconnect();
 
@@ -21,7 +19,7 @@ public class App {
     private Connection con = null;
 
 
-    public void connect() {
+    public Connection connect() {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -31,8 +29,7 @@ public class App {
         }
 
         // Connection to the database
-        Connection con = null;
-        int retries = 100;
+        int retries = 5;
         for (int i = 0; i < retries; ++i) {
             System.out.println("Connecting to database...");
             try {
@@ -52,6 +49,7 @@ public class App {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
+        return con;
     }
 
     public void disconnect()
@@ -67,54 +65,6 @@ public class App {
             {
                 System.out.println("Error closing connection to database");
             }
-        }
-    }
-
-    public City getCity(int ID)
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT id, name, countrycode, district"
-                            + "FROM city"
-                            + "WHERE id = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City cty = new City();
-                cty.id = rset.getInt("id");
-                cty.name = rset.getString("name");
-                cty.countryCode = rset.getString("countrycode");
-                cty.district = rset.getString("district");
-                return cty;
-            }
-            else
-                return null;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
-    }
-
-
-    public void displayCity(City cty)
-    {
-        if (cty != null)
-        {
-            System.out.println(
-                    cty.id + " "
-                            + cty.name + " "
-                            + cty.countryCode + "\n"
-                            + cty.district + "\n");
         }
     }
 }

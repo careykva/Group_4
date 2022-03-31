@@ -3,12 +3,13 @@ package com.napier.sem;
 import java.sql.*;
 
 public class App {
-    public static <City> void main(String[] args) {
+    public static void main(String[] args) {
 
         App a = new App();
 
         a.connect();
-        City cty = a.getCity(17);
+        City cty = new City();
+        cty.getCity(17);
         // Display results
         a.displayCity(cty );
 
@@ -16,12 +17,6 @@ public class App {
 
     }
 
-    private <City> City getCity(int i) {
-        return null;
-    }
-
-    private <City> void displayCity(City cty) {
-    }
 
     private Connection con = null;
 
@@ -75,7 +70,53 @@ public class App {
         }
     }
 
+    public City getCity(int ID)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT id, name, countrycode, district"
+                            + "FROM city"
+                            + "WHERE id = " + ID;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            if (rset.next())
+            {
+                City cty = new City();
+                cty.id = rset.getInt("id");
+                cty.name = rset.getString("name");
+                cty.countryCode = rset.getString("countrycode");
+                cty.district = rset.getString("district");
+                return cty;
+            }
+            else
+                return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
 
+
+    public void displayCity(City cty)
+    {
+        if (cty != null)
+        {
+            System.out.println(
+                    cty.id + " "
+                            + cty.name + " "
+                            + cty.countryCode + "\n"
+                            + cty.district + "\n");
+        }
+    }
 }
 
 

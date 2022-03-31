@@ -1,18 +1,17 @@
+package com.napier.sem;
+
 import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 public class City {
-    private Object first_name;
-    public Object last_name;
     public String name;
-    public String CountryCode;
+    public String countryCode;
     public String district;
     public int id;
+    private Object City;
+    private Object city;
 
-    public City(String countryCode) {
-        setCountryCode(countryCode);
-    }
 
     public City getCity(int ID) {
         try {
@@ -31,12 +30,11 @@ public class City {
              Check one is returned
             */
             if (rset.next()) {
-                String countryCode = new String();
-                City cty = new City(countryCode);
-                cty.setId(rset.getInt("id"));
-                cty.setName(rset.getString("name"));
-                cty.setCountryCode(rset.getString("CountryCode"));
-                cty.setDistrict(rset.getString("district"));
+                City cty = new City();
+                cty.id = rset.getInt("id");
+                cty.name = rset.getString("name");
+                cty.countryCode = rset.getString("CountryCode");
+                cty.district = rset.getString("district");
                 return cty;
             } else
                 return null;
@@ -50,29 +48,29 @@ public class City {
     public void displayCity(City cty) {
         if (cty != null) {
             System.out.println(
-                    cty.getId() + " "
-                            + cty.getName() + " "
-                            + cty.getCountryCode() + "\n"
-                            + cty.getDistrict() + "\n");
+                    cty.id  + " "
+                            + cty.name + " "
+                            + cty.countryCode + "\n"
+                            + cty.district + "\n");
             Object a = null;
             Object a1 = a;
         }
     }
-
+/*
     public Object getFirst_name() {
-        return first_name;
+        return id;
     }
 
     public void setFirst_name(Object first_name) {
-        this.first_name = first_name;
+        Object city = this.City;
     }
 
-    public Object getLast_name() {
-        return last_name;
+    public Object getCity() {
+        return null;
     }
 
     public void setLast_name(Object last_name) {
-        this.last_name = last_name;
+        this. City = City;
     }
 
     public String getName() {
@@ -84,11 +82,11 @@ public class City {
     }
 
     public String getCountryCode() {
-        return CountryCode;
+        return countryCode;
     }
 
     public void setCountryCode(String countryCode) {
-        CountryCode = countryCode;
+        this.countryCode = countryCode;
     }
 
     public String getDistrict() {
@@ -106,4 +104,6 @@ public class City {
     public void setId(int id) {
         this.id = id;
     }
+
+ */
 }

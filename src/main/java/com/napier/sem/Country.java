@@ -4,12 +4,12 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.*;
 
-public class City {
-    public String name;
-    public String countryCode;
-    public String district;
+public class Country {
+    public String Code;
+    public String Name;
+    public String Continent;
+    public String Region;
     public String Population;
-    public int id;
    /* private Object City;
     private Object city;
     private int id;
@@ -18,9 +18,12 @@ public class City {
 
     App a = new App();
 
-    public void cityData(){
-        ArrayList<City> cities = getCity(17);
-        displayCity(cities);
+    public void countryData(){
+        ArrayList<Country> countries = getCountry(52);
+        displayCountry(countries);
+    }
+
+    private ArrayList<Country> getCountry(int i) {
     }
 
 
@@ -32,7 +35,7 @@ public class City {
             // Create string for SQL statement
             String strSelect =
                     "SELECTID,Name,CountryCode,District "
-                            + " FROM city "
+                            + " FROM country "
                             + "WHERE ID = " + ID;
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
@@ -49,7 +52,7 @@ public class City {
                 cty.district = rset.getString("district");
                 cities.add(cty);
             }
-                return cities;
+            return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");

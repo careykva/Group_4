@@ -18,14 +18,17 @@ public class Country {
 
     App a = new App();
 
+    /*
     public void countryData(){
         ArrayList<Country> countries = getCountry(52);
-        displayCountry(countries);
+        //displayCountry(countries);
     }
+
 
     private ArrayList<Country> getCountry(int i) {
-    }
 
+    }
+*/
 
     public ArrayList<City> getCity(int ID) {
         try {

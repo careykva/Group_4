@@ -10,7 +10,6 @@ public class App {
         cty.cityData();
 
         a.disconnect();
-
     }
 
 

@@ -31,9 +31,9 @@ public class City {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECTID,Name,CountryCode,District "
-                            + " FROM city "
-                            + "WHERE ID = " + ID;
+                    "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
+                            + "FROM city cty "
+                            + "WHERE cty.ID = " + ID;
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*

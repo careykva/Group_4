@@ -3,7 +3,9 @@ package com.napier.sem;
 import java.sql.*;
 
 public class App {
+
     public static void main(String[] args) {
+
         App a = new App();
         City cty = new City();
 
@@ -14,7 +16,6 @@ public class App {
 
 
     private Connection con = null;
-
 
     public Connection connect() {
         try {

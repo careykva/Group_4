@@ -1,4 +1,4 @@
-### Goal in Context: Use Case Capital Report
+### Goal in Context: Use Case Capital com.napier.sem.Report
 1. The top N populated cities in the world where N is provided by the user.
 2. The top N populated cities in a continent where N is provided by the user.
 3. The top N populated cities in a region where N is provided by the user.

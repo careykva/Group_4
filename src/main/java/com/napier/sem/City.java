@@ -19,12 +19,12 @@ public class City {
     App a = new App();
 
     public void cityData(){
-        ArrayList<City> cities = getCity(17);
+        ArrayList<City> cities = getCity();
         displayCity(cities);
     }
 
 
-    public ArrayList<City> getCity(int ID) {
+    public ArrayList<City> getCity() {
         try {
             // Create an SQL statement
             Connection con = a.connect();
@@ -33,7 +33,7 @@ public class City {
             String strSelect =
                     "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
                             + "FROM city cty "
-                            + "WHERE cty.ID = " + ID;
+                            + "order by cty.population desc";
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*
@@ -120,4 +120,7 @@ public class City {
     }
 
  */
+
+    public static class Population{
+    }
 }

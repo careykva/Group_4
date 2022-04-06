@@ -9,6 +9,7 @@ public class City {
     public String countryCode;
     public String district;
     public String Population;
+    public String region;
     public int id;
    /* private Object City;
     private Object city;
@@ -20,6 +21,11 @@ public class City {
 
     public void cityData(){
         ArrayList<City> cities = getCity();
+        displayCity(cities);
+    }
+
+    public void cityInRegion(){
+        ArrayList<City> cities = getCityInRegion();
         displayCity(cities);
     }
 
@@ -57,16 +63,49 @@ public class City {
         }
     }
 
-
+    public ArrayList<City> getCityInRegion() {
+        try {
+            // Create an SQL statement
+            Connection con = a.connect();
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
+                            + "FROM city cty "
+                            + "order by cty.population desc"
+                            + "GROUP BY cty.region";
+            // Execute SQL statement
+            ResultSet rset =  stmt.executeQuery(strSelect);
+            /*
+             Return new employee if valid.
+             Check one is returned
+            */
+            ArrayList<City> cities = new ArrayList<>();
+            while (rset.next()) {
+                City cty = new City();
+                cty.id = rset.getInt("id");
+                cty.name = rset.getString("name");
+                cty.countryCode = rset.getString("CountryCode");
+                cty.district = rset.getString("district");
+                cty.region = rset.getString("region");
+                cities.add(cty);
+            }
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
 
     public void displayCity(ArrayList<City> cities) {
         // Print header
-        System.out.println(String.format("%-10s %-15s %-20s %-8s", "id", "name", "countryCode", "district"));
+        System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "id", "name", "countryCode", "district", "Region"));
         // Loop over all employees in the list
         for (City cty : cities) {
             String cty_string =
-                    String.format("%-10s %-15s %-20s %-8s",
-                            cty.id, cty.name, cty.countryCode, cty.district);
+                    String.format("%-10s %-15s %-20s %-8s %-15s",
+                            cty.id, cty.name, cty.countryCode, cty.district, cty.region);
             System.out.println(cty_string);
         }
     }

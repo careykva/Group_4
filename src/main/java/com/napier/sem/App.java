@@ -8,8 +8,10 @@ public class App {
 
         App a = new App();
         City cty = new City();
+        Country cntry = new Country();
 
-        cty.cityData();
+        // cntry.getCity();
+        // cty.cityData();
 
         a.disconnect();
     }
@@ -34,7 +36,7 @@ public class App {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://groupfour:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://groupfour:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 // Wait a bit
                 Thread.sleep(10000);

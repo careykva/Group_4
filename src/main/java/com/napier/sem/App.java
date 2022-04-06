@@ -1,22 +1,19 @@
 package com.napier.sem;
-
 import java.sql.*;
-
 public class App {
 
     public static void main(String[] args) {
 
         App a = new App();
         City cty = new City();
-
-        cty.cityData();
-
+        Country cntry = new Country();
+        // cntry.getCity();
+        // cty.cityData();
         a.disconnect();
     }
 
 
     private Connection con = null;
-
     public Connection connect() {
         try {
             // Load Database driver
@@ -34,7 +31,7 @@ public class App {
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://groupfour:3306/world?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://groupfour:3306/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 // Wait a bit
                 Thread.sleep(10000);
@@ -67,15 +64,3 @@ public class App {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

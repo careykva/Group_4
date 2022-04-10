@@ -8,7 +8,7 @@ public class App {
 
         App a = new App();
         City cty = new City();
-        Country cntry = new Country();
+        Country contries = new Country();
 
         // cntry.getCity();
         // cty.cityData();

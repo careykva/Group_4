@@ -1,4 +1,4 @@
 package com.napier.sem;
 
-public class Region {
+public class Capital {
 }

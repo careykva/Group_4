@@ -8,7 +8,10 @@ public class App {
 
         App a = new App();
         City cty = new City();
-        Country contries = new Country();
+        Country cntry = new Country();
+
+        CapitalCities cptl = new CapitalCities();
+        cptl.getCapitalCities();
 
         // cntry.getCity();
         // cty.cityData();

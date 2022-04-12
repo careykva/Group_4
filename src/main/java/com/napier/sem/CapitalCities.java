@@ -8,10 +8,10 @@ public class CapitalCities {
     public String name;
     public String code;
     public String continent;
-    public String population;
+    public int population;
     public String region;
-    public String capital;
-    public String country;
+    public int capital;
+    /*public String country;
    /* private Object City;
     private Object city;
     private int id;
@@ -25,7 +25,7 @@ public class CapitalCities {
         displayCapitalCities(cptl);
     }
 
-    public void displayCountry() {
+    public void displayCapitalCities() {
     }
 
 
@@ -36,7 +36,7 @@ public class CapitalCities {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT cptl.Name, cptl.Code, cptl.Continent, cptl.Population, cptl.Region, cptl.Capital "
+                    "SELECT cptl.name, cptl.code, cptl.continent, cptl.population, cptl.region, cptl.capital "
                             + "FROM country cptl "
                             + "order by cptl.Capital desc ";
             // Execute SQL statement
@@ -49,10 +49,11 @@ public class CapitalCities {
             while (rset.next()) {
                 CapitalCities cptl = new CapitalCities();
                 cptl.name = rset.getString("name");
+                cptl.code = rset.getString("code");
                 cptl.continent = rset.getString("continent");
-               /* cptl.population = rset.getString("population");*/
+                cptl.population = rset.getInt("population");
                 cptl.region = rset.getString("region");
-                cptl.capital = rset.getString("capital");
+                cptl.capital = rset.getInt("capital");
                 cities.add(cptl);
             }
             return cities;
@@ -70,10 +71,10 @@ public class CapitalCities {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT cptl.Name, cptl.Code, cptl.Continent , cptl.Population, cptl.Region, cptl.Capital"
+                    "SELECT cptl.name, cptl.code, cptl.continent, cptl.population, cptl.region, cptl.capital "
                             + " FROM country cptl "
                             + " order by cptl.capital desc"
-                            + " GROUP BY cty.region";
+                            + " GROUP BY cptl.region";
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*
@@ -86,14 +87,15 @@ public class CapitalCities {
                 cptl.name = rset.getString("name");
                 cptl.code = rset.getString("code");
                 cptl.continent = rset.getString("continent");
+                cptl.population = rset.getInt("population");
                 cptl.region = rset.getString("region");
-                cptl.country = rset.getString("country");
+                cptl.capital = rset.getInt("capital");
                 cities.add(cptl);
             }
             return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
+            System.out.println("Failed to get capital details");
             return null;
         }
     }
@@ -105,7 +107,7 @@ public class CapitalCities {
         for (CapitalCities cptl : cities) {
             String cty_string =
                     String.format("%-10s %-15s %-20s %-8s %-15s",
-                            cptl.name, cptl.code, cptl.continent, cptl.region, cptl.country, cptl.capital);
+                            cptl.name, cptl.code, cptl.continent, cptl.region, cptl.capital);
             System.out.println(cty_string);
         }
     }

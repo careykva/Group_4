@@ -11,7 +11,7 @@ public class App {
         Country cntry = new Country();
 
         CapitalCities cptl = new CapitalCities();
-        cptl.getCapitalCities();
+        cptl.allCapitalCities();
 
         // cntry.getCity();
         // cty.cityData();

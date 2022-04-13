@@ -10,6 +10,9 @@ public class Country {
     public String Continent;
     public String Region;
     public String Population;
+    public String name;
+    public Object capital;
+    private String Country;
    /* private Object City;
     private Object city;
     private int id;
@@ -75,6 +78,14 @@ public class Country {
                             cty.id, cty.name, cty.countryCode, cty.district);
             System.out.println(cty_string);
         }
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setCountry(String country) {
+        Country = country;
     }
 /*
     public Object getFirst_name() {

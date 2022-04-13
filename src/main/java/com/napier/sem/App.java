@@ -1,5 +1,7 @@
 package com.napier.sem;
+
 import java.sql.*;
+
 public class App {
 
     public static void main(String[] args) {
@@ -7,13 +9,19 @@ public class App {
         App a = new App();
         City cty = new City();
         Country cntry = new Country();
+
+        CapitalCities cptl = new CapitalCities();
+        cptl.allCapitalCities();
+
         // cntry.getCity();
         // cty.cityData();
+
         a.disconnect();
     }
 
 
     private Connection con = null;
+
     public Connection connect() {
         try {
             // Load Database driver
@@ -64,3 +72,15 @@ public class App {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

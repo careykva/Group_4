@@ -102,61 +102,54 @@ public class Country {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "country.code", "country.name", "country.continent", "country.region", "country.population"));
         // Loop over all employees in the list
-        for (CapitalCities cptl : cities) {
+        for (Country cptl : ctry) {
             String cty_string =
                     String.format("%-10s %-15s %-20s %-8s %-15s",
-                            ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population;
-            System.out.println(cty_string);
+                            getCountryInRegion().addAll())
+            System.out.println(getCountryInRegion());
         }
     }
 /*
-    public Object getCode() {
-        return Code;
+    public Object getCountry.Code() {
+        return Country.Code;
     }
 
-    public void setCode(Object code) {
-        this.code = Code;
+    public void set Country.Code(Object country.code) {
+        this.Country.code = Country.Code;
     }
 
-    public Object get Country() {
-        return null;
+    public String get Country.Name() {
+        return Country.Name;
     }
 
-    public void setName(Object name) {
-        this. Name = Name;
+    public void setCountry.Name(Object country.name) {
+        this. Country.Name = Country.Name;
     }
 
-    public String getName() {
-        return name;
+    public String getCountry.Continent() {
+        return Country.Continent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCountry.Continent(String country.continent) {
+        this.country.continent = country.continent;
     }
 
-    public String getCountryCode() {
-        return countryCode;
+    public String getCountry.Region() {
+        return country.region;
     }
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
+    public void setCountry.Region(String country.region) {
+        this.country.region = country.region;
     }
 
-    public String getDistrict() {
-        return district;
+    public Int getCountry.Population() {
+        return country.population;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setCountry.Population(Int country.population) {
+        this.country.population = country.population;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
  */
 

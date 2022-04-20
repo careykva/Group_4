@@ -5,60 +5,56 @@ import java.sql.*;
 import java.util.*;
 
 public class Country {
-    public String Code;
-    public String Name;
-    public String Continent;
-    public String Region;
-    public String Population;
+    public String code;
     public String name;
-    public Object capital;
-    private String Country;
-   /* private Object City;
-    private Object city;
+    public String continent;
+    public String region;
+    public int population;
+
+    /*private String Country;
+    /*private Object country;
     private int id;
 */
 
-
     App a = new App();
 
-    /*
-    public void countryData(){
-        ArrayList<Country> countries = getCountry(52);
-        //displayCountry(countries);
+    public void allCountry(){
+        ArrayList<Country> ctry = getCountry();
+        displayCountry(ctry);
+    }
+
+    public void displayCountry() {
+
     }
 
 
-    private ArrayList<Country> getCountry(int i) {
-
-    }
-*/
-
-    public ArrayList<City> getCity(int ID) {
+    public ArrayList<Country> getCountry() {
         try {
             // Create an SQL statement
             Connection con = a.connect();
             Statement stmt = con.createStatement();
             // Create string for SQL statement
+            String s = "FROM `country`";
             String strSelect =
-                    "SELECTID,Name,CountryCode,District "
-                            + " FROM country "
-                            + "WHERE ID = " + ID;
+                    "SELECT ctry.code, ctry.name, ctry.continent,    ctry.region, ctry.population ";
+                             "`Where` `country`.`Region` = “Caribbean”
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*
-             Return new employee if valid.
+             Return new contry if valid.
              Check one is returned
             */
-            ArrayList<City> cities = new ArrayList<>();
+            ArrayList<Country> country = new ArrayList<>();
             while (rset.next()) {
-                City cty = new City();
-                cty.id = rset.getInt("id");
-                cty.name = rset.getString("name");
-                cty.countryCode = rset.getString("CountryCode");
-                cty.district = rset.getString("district");
-                cities.add(cty);
+                Country ctry = new Country();
+                ctry.code = rset.getString("code");
+                        ctry.name = rset.getString("name");
+                ctry.continent = rset.getString("continent");
+                ctry.region = rset.getString("region");
+                ctry.population = rset.getInt("population");
+                country.add(ctry);
             }
-            return cities;
+            return country;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
@@ -66,42 +62,68 @@ public class Country {
         }
     }
 
+    public ArrayList<Country> getCountryInRegion() {
+        try {
+            // Create an SQL statement
+            Connection con = a.connect();
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
+                            + "FROM city cty "
+                            + "order by cty.population desc"
+                            + "GROUP BY cty.region";
+            // Execute SQL statement
+            ResultSet rset =  stmt.executeQuery(strSelect);
+            /*
+             Return new country if valid.
+             Check one is returned
+            */
+            ArrayList<Country> countries = new ArrayList<>();
+            while (rset.next()) {
+                Country ctry = new Country();
+                ctry.code = rset.getString("code");
+                        ctry.name = rset.getString("name");
+                ctry.continent = rset.getString("continent");
+                ctry.region = rset.getString("region");
+                ctry.population = rset.getInt("population");
+                countries.add(ctry);
 
-
-    public void displayCity(ArrayList<City> cities) {
-        // Print header
-        System.out.println(String.format("%-10s %-15s %-20s %-8s", "id", "name", "countryCode", "district"));
-        // Loop over all employees in the list
-        for (City cty : cities) {
-            String cty_string =
-                    String.format("%-10s %-15s %-20s %-8s",
-                            cty.id, cty.name, cty.countryCode, cty.district);
-            System.out.println(cty_string);
+            }
+            return countries;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
         }
     }
 
-    public String getCountry() {
-        return Country;
-    }
-
-    public void setCountry(String country) {
-        Country = country;
+    public void displayCountries(ArrayList<Country> ctry {
+        // Print header
+        System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "country.code", "country.name", "country.continent", "country.region", "country.population"));
+        // Loop over all employees in the list
+        for (CapitalCities cptl : cities) {
+            String cty_string =
+                    String.format("%-10s %-15s %-20s %-8s %-15s",
+                            ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population;
+            System.out.println(cty_string);
+        }
     }
 /*
-    public Object getFirst_name() {
-        return id;
+    public Object getCode() {
+        return Code;
     }
 
-    public void setFirst_name(Object first_name) {
-        Object city = this.City;
+    public void setCode(Object code) {
+        this.code = Code;
     }
 
-    public Object getCity() {
+    public Object get Country() {
         return null;
     }
 
-    public void setLast_name(Object last_name) {
-        this. City = City;
+    public void setName(Object name) {
+        this. Name = Name;
     }
 
     public String getName() {
@@ -137,4 +159,8 @@ public class Country {
     }
 
  */
+
+    public static class Population{
+    }
 }
+

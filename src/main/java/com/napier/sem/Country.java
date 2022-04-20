@@ -36,8 +36,9 @@ public class Country {
             // Create string for SQL statement
             String strSelect =
                     "SELECT ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population ";
-                                 + "FROM country"
-                                 + "Order by ctrl.Region desc ";
+                new StringBuilder()
+                        .append("FROM country")
+                        .append("Order by ctrl.Region desc ").toString();
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*
@@ -98,8 +99,8 @@ public class Country {
         }
     }
 
-    public void displayCountries(ArrayList<Country>ctry{
-        // Print header
+    public void displayCountry(ArrayList<Country>ctry){
+        /* Print header */
         System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "country.code", "country.name", "country.continent", "country.region", "country.population"));
         // Loop over all employees in the list
         for (Country cptl : ctry) {

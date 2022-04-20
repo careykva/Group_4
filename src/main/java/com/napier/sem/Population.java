@@ -4,7 +4,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.*;
 
-public class country {
+public class Country {
     public String Code;
     public String Name;
     public String Continent;
@@ -41,17 +41,17 @@ public class country {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Country> cnty = new ArrayList<>();
+            ArrayList<Country> Countries = new ArrayList<>();
             while (rset.next()) {
                 Country cnty = new Country();
                 cnty.Code = rset.getString("Code");
                 cnty.Name = rset.getString("Name");
                 cnty.Continent = rset.getString("Continent");
                 cnty.Region = rset.getString("Region");
-                cnty.Population = rset.getString("Population");
-                cnty.add(cnty);
+                cnty.Population = rset.getInt("Population");
+                Countries.add(cnty);
             }
-            return cnty;
+            return Countries;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
@@ -76,17 +76,18 @@ public class country {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Country> cnty = new ArrayList<>();
+            ArrayList<Country> Countries = new ArrayList<>();
             while (rset.next()) {
-                Country cnty = new country();
+                Country cnty = new Country();
                 cnty.Code = String.valueOf(rset.getInt("Code"));
                 cnty.Name = rset.getString("Name");
                 cnty.Continent = rset.getString("Continent");
                 cnty.Region = rset.getString("Region");
-                cnty.Population = rset.getString("Population");
-                cnty.add(cnty);
+                cnty.Population = rset.getInt("Population");
+                Countries.add(cnty);
             }
-            return cnty;
+            ArrayList<Country> cnty;
+            return Countries;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get cnty details");
@@ -98,10 +99,10 @@ public class country {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "code", "name", "continent", "region", "population"));
         // Loop over all employees in the list
-        for (country cnty : country) {
+        for (Country countries : cnty) {
             String cnty_string =
                     String.format("%-10s %-15s %-20s %-8s %-15s",
-                            cnty.Code, cnty.Name, cnty.Continent, cnty.Region, cnty.Population);
+                            countries.Code, countries.Name, countries.Continent, countries.Region, countries.Population);
             System.out.println(cnty_string);
         }
     }

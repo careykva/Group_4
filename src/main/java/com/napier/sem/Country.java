@@ -18,7 +18,7 @@ public class Country {
 
     App a = new App();
 
-    public void allCountry(){
+    public void allCountry() {
         ArrayList<Country> ctry = getCountry();
         displayCountry();
     }
@@ -35,20 +35,20 @@ public class Country {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population ";
-                                 + "FROM country"
-                                 + "Order by ctrl.Region desc ";
+                    "SELECT ctry.code, ctry.name, ctry.continent, ctry.region, ctry.population "
+                            + "FROM country ctry "
+                            + "Order by ctry.Region desc";
             // Execute SQL statement
-            ResultSet rset =  stmt.executeQuery(strSelect);
+            ResultSet rset = stmt.executeQuery(strSelect);
             /*
-             Return new contry if valid.
+             Return new country if valid.
              Check one is returned
             */
             ArrayList<Country> country = new ArrayList<>();
             while (rset.next()) {
                 Country ctry = new Country();
                 ctry.code = rset.getString("code");
-                        ctry.name = rset.getString("name");
+                ctry.name = rset.getString("name");
                 ctry.continent = rset.getString("continent");
                 ctry.region = rset.getString("region");
                 ctry.population = rset.getInt("population");
@@ -69,12 +69,12 @@ public class Country {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
-                            + "FROM city cty "
-                            + "order by cty.population desc"
-                            + "GROUP BY cty.region";
+                    "SELECT ctry.code, ctry.Name, ctry.Continent, ctry.Region, ctry.Population "
+                            + "FROM city ctry "
+                            + "Order by ctry.Population desc"
+                            + "GROUP BY ctry.Region";
             // Execute SQL statement
-            ResultSet rset =  stmt.executeQuery(strSelect);
+            ResultSet rset = stmt.executeQuery(strSelect);
             /*
              Return new country if valid.
              Check one is returned
@@ -83,7 +83,7 @@ public class Country {
             while (rset.next()) {
                 Country ctry = new Country();
                 ctry.code = rset.getString("code");
-                        ctry.name = rset.getString("name");
+                ctry.name = rset.getString("name");
                 ctry.continent = rset.getString("continent");
                 ctry.region = rset.getString("region");
                 ctry.population = rset.getInt("population");
@@ -98,7 +98,7 @@ public class Country {
         }
     }
 
-    public void displayCountries(ArrayList<Country>ctry{
+    public void displayCountry(ArrayList<Country> ctry) {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "country.code", "country.name", "country.continent", "country.region", "country.population"));
         // Loop over all employees in the list
@@ -153,7 +153,5 @@ public class Country {
 
  */
 
-    public static class Population{
-    }
 }
 

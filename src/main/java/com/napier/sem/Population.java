@@ -4,106 +4,105 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.*;
 
-public class Country {
-    public String Code;
-    public String Name;
-    public String Continent;
-    public String Region;
-    public int Population;
+public class Population {
+    public String code;
+    public String name;
+    public String continent;
+    public String region;
+    public int population;
 
 
     App a = new App();
 
-    public void countryData() {
-        ArrayList<Country> cnty = getCountry();
-        displayCountry(cnty);
+    public void PopulationData() {
+        ArrayList<Population> pop = getPopulation();
+        displayPopulation(pop);
     }
 
-    public void countryInRegion() {
-        ArrayList<Country> cnty = getCountryInRegion();
-        displayCountry(cnty);
+    public  void displayAllPopulation () {
+        ArrayList<Population> pop = getAllPopulation();
+        displayPopulation(pop);
     }
 
 
-    public ArrayList<Country> getCountry() {
+
+    public ArrayList<Population> getPopulation() {
         try {
             // Create an SQL statement
             Connection con = a.connect();
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT cnty.Code, cnty.Name, cnty.Continent, cnty.Region, cnty.Population "
-                            + "FROM country cnty "
-                            + "order by cnty.population desc";
+                    "SELECT pop.code, pop.Name, pop.continent, pop.Region, pop.Population "
+                            + "FROM population pop "
+                            + "Order by pop.Population desc";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             /*
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Country> Countries = new ArrayList<>();
+            ArrayList<Population> population = new ArrayList<>();
             while (rset.next()) {
-                Country cnty = new Country();
-                cnty.Code = rset.getString("Code");
-                cnty.Name = rset.getString("Name");
-                cnty.Continent = rset.getString("Continent");
-                cnty.Region = rset.getString("Region");
-                cnty.Population = rset.getInt("Population");
-                Countries.add(cnty);
+                Population popl = new Population();
+                popl.code = rset.getString("code");
+                popl.name = rset.getString("name");
+                popl.continent = rset.getString("continent");
+                popl.region = rset.getString("region");
+                popl.population = rset.getInt("population");
+                population.add(popl);
             }
-            return Countries;
+            return population;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get country details");
+            System.out.println("Failed to get population details");
             return null;
         }
     }
 
-    public ArrayList<Country> getCountryInRegion() {
+    public ArrayList<Population> getAllPopulation() {
         try {
             // Create an SQL statement
             Connection con = a.connect();
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT cnty.Code, cnty.Name, cnty.Continent, cnty.Region, cnty.Population "
-                            + "FROM country cnty "
-                            + "order by cnty.population desc"
-                            + "GROUP BY cnty.Population";
+                    "SELECT popl.code, popl.name, popl.Continent, popl.Region, popl.Population "
+                            + "FROM country popl "
+                            + "ORDER BY popl.Population desc";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             /*
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Country> Countries = new ArrayList<>();
+            ArrayList<Population> population = new ArrayList<>();
             while (rset.next()) {
-                Country cnty = new Country();
-                cnty.Code = String.valueOf(rset.getInt("Code"));
-                cnty.Name = rset.getString("Name");
-                cnty.Continent = rset.getString("Continent");
-                cnty.Region = rset.getString("Region");
-                cnty.Population = rset.getInt("Population");
-                Countries.add(cnty);
+                Population popl = new Population();
+                popl.code = String.valueOf(rset.getInt("Code"));
+                popl.name = rset.getString("Name");
+                popl.continent = rset.getString("Continent");
+                popl.region = rset.getString("Region");
+                popl.population = rset.getInt("Population");
+                population.add(popl);
             }
-            ArrayList<Country> cnty;
-            return Countries;
+            return population;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get cnty details");
+            System.out.println("Failed to get population details");
             return null;
         }
     }
 
-    public void displayCountry(ArrayList<Country> cnty) {
+    public void displayPopulation(ArrayList<Population> popl) {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s %-15s", "code", "name", "continent", "region", "population"));
         // Loop over all employees in the list
-        for (Country countries : cnty) {
-            String cnty_string =
+        for (Population pop : popl) {
+            String pop_string =
                     String.format("%-10s %-15s %-20s %-8s %-15s",
-                            countries.Code, countries.Name, countries.Continent, countries.Region, countries.Population);
-            System.out.println(cnty_string);
+                            pop.code, pop.name, pop.continent, pop.region, pop.population);
+            System.out.println(pop_string);
         }
     }
 /*
@@ -157,6 +156,6 @@ public class Country {
 
  */
 
-    public static class Population {
+    public static class population {
     }
 }

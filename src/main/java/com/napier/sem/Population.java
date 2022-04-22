@@ -42,7 +42,7 @@ public class Population {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Population> population = new ArrayList<>();
+            ArrayList<Population> population = new ArrayList();
             while (rset.next()) {
                 Population popl = new Population();
                 popl.code = rset.getString("code");
@@ -76,7 +76,7 @@ public class Population {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<Population> population = new ArrayList<>();
+            ArrayList<Population> population = new ArrayList();
             while (rset.next()) {
                 Population popl = new Population();
                 popl.code = String.valueOf(rset.getInt("Code"));

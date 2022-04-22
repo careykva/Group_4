@@ -44,7 +44,7 @@ public class Country {
              Return new country if valid.
              Check one is returned
             */
-            ArrayList<Country> country = new ArrayList<>();
+            ArrayList<Country> country = new ArrayList();
             while (rset.next()) {
                 Country ctry = new Country();
                 ctry.code = rset.getString("code");
@@ -79,7 +79,7 @@ public class Country {
              Return new country if valid.
              Check one is returned
             */
-            ArrayList<Country> countries = new ArrayList<>();
+            ArrayList<Country> countries = new ArrayList();
             while (rset.next()) {
                 Country ctry = new Country();
                 ctry.code = rset.getString("code");

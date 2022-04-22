@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
 
         App a = new App();
-        City cty = new City();
+        city cty = new city();
         Country cntry = new Country();
 
         CapitalCities cptl = new CapitalCities();

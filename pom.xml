@@ -26,6 +26,12 @@
             <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>world-countries</artifactId>
+            <version>1.8.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>

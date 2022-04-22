@@ -13,8 +13,8 @@ public class App {
         CapitalCities cptl = new CapitalCities();
         cptl.allCapitalCities();
 
-        // cntry.getCity();
-        // cty.cityData();
+         cntry.getCountry();
+        cty.cityData();
 
         a.disconnect();
     }

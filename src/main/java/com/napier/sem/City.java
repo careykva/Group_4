@@ -46,7 +46,7 @@ public class City {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<City> cities = new ArrayList<>();
+            ArrayList<City> cities = new ArrayList();
             while (rset.next()) {
                 City cty = new City();
                 cty.id = rset.getInt("id");
@@ -80,7 +80,7 @@ public class City {
              Return new employee if valid.
              Check one is returned
             */
-            ArrayList<City> cities = new ArrayList<>();
+            ArrayList<City> cities = new ArrayList();
             while (rset.next()) {
                 City cty = new City();
                 cty.id = rset.getInt("id");

@@ -73,7 +73,7 @@ public class City {
                     "SELECT cty.ID, cty.Name, cty.CountryCode, cty.District "
                             + "FROM city cty "
                             + "order by cty.population desc"
-                            + "GROUP BY cty.region";
+                            + "GROUP BY cty.Region";
             // Execute SQL statement
             ResultSet rset =  stmt.executeQuery(strSelect);
             /*

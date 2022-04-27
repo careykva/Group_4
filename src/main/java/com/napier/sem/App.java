@@ -7,14 +7,16 @@ public class App {
     public static void main(String[] args) {
 
         App a = new App();
-        city cty = new city();
-        Country cntry = new Country();
+        City cty = new City();
+        //Country cntry = new Country();
 
-        CapitalCities cptl = new CapitalCities();
-        cptl.allCapitalCities();
+       // CapitalCities cptl = new CapitalCities();
+       // cptl.allCapitalCities();
 
-         cntry.getCountry();
+
+        // country.getCountry();
         cty.cityData();
+
 
         a.disconnect();
     }
